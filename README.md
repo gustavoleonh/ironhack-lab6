@@ -2,6 +2,7 @@
 
 ### Example CICD configuration YML
 <br>
+
 ``` yml
 name: CI/CD Pipeline
 
@@ -84,8 +85,11 @@ jobs:
         kubectl rollout status deployment/your-deployment-name
 ```
 <br>
+
 **Explanation:**
+
 <br>
+
 1. **Trigger on push to `main` branch:** The workflow is configured to run when code is pushed to the `main` branch.
 2. **Build Job:**
     * **Checkout code:** Uses the `actions/checkout` action to checkout the code from the repository.
@@ -105,8 +109,11 @@ jobs:
     * **Deploy to Kubernetes:** Updates the image of the Kubernetes deployment and waits for the rollout to complete.
 
 <br>
+
 **Docker File:**
+
 <br>
+
 ```
 # Use an official OpenJDK runtime as a parent image
 FROM eclipse-temurin:21-jre
@@ -124,6 +131,7 @@ EXPOSE 8080
 ENTRYPOINT ["java", "-jar", "app.jar"]
 ```
 <br>
+
 **explanation:**
 
 1. **Base Image:**
@@ -138,8 +146,11 @@ ENTRYPOINT ["java", "-jar", "app.jar"]
     * `ENTRYPOINT ["java", "-jar", "app.jar"]`: Specifies the command to run the jar file when the container starts.
 
 <br>
+
 #### Enhancements & potential issues:
+
 <br>
+
 **Enhancements of Using Docker in CI/CD:**
 
 1. **Consistency:**
@@ -175,11 +186,12 @@ ENTRYPOINT ["java", "-jar", "app.jar"]
     * **Resource Consumption:** Running multiple containers simultaneously can strain system resources, particularly on shared CI/CD infrastructure.
 
 <br>
+
 ### Mitigation Strategies:
 
 1. **Security Best Practices:**
     * Regularly update base images and use trusted sources.
-    * Implement vulnerability scanning tools (e.g., Trivy, Clair) in the CI/CD pipeline.
+    * Implement vulnerability scanning tools (e.g., Trivy, Clair, Checkmarks, blackduc, Snyk) in the CI/CD pipeline.
     * Use the principle of least privilege for running containers.
 2. **Orchestration and Management:**
     * Use Kubernetes or Docker Swarm for managing container orchestration.
