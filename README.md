@@ -3,6 +3,8 @@
 ### Example CICD configuration YML
 <br>
 
+**Considerations: This assumes that we're working with a Spring boot app build using maven
+
 ``` yml
 name: CI/CD Pipeline
 
