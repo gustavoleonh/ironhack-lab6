@@ -114,7 +114,7 @@ jobs:
 
 <br>
 
-```
+``` dockerfile
 # Use an official OpenJDK runtime as a parent image
 FROM eclipse-temurin:21-jre
 
